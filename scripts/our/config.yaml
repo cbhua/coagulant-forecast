@@ -1,0 +1,36 @@
+general:
+  project_name: 'WaterResearch'
+  run_name: 'gru'
+  use_wandb: True
+  device: 1
+  accelerator: 'gpu'
+  seed: 42
+
+data: 
+  train_valid_data_dir: 'data/toc_processed/scale_2016-2020.npy'
+  test_data_dir:  'data/toc_processed/scale_2021.npy'
+  tv_split: 0.8
+  batch_size: 32
+  windows_size: 200
+  sliding: 1
+  num_workers: 4
+
+model:
+  n_features: 9,
+  window_size: 200,
+  out_dim: 2,
+  kernel_size: 5, # todo
+  use_gatv2: True, 
+  feat_gat_embed_dim: None,
+  time_gat_embed_dim: None,
+  gru_n_layers: 1,
+  gru_hid_dim: 64,
+  forecast_n_layers: 6, # todo 2
+  forecast_hid_dim: 256, # todo 2
+  recon_n_layers: 6, # todo 2
+  recon_hid_dim: 256, # todo 2
+  dropout: 0.3,
+  alpha: 0.2
+
+train: 
+  epoch: 100

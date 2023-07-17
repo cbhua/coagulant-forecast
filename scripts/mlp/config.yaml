@@ -1,0 +1,23 @@
+general:
+  project_name: 'WaterResearch'
+  run_name: 'mlp'
+  use_wandb: True
+  device: 1
+  accelerator: 'gpu'
+  seed: 42
+
+data: 
+  train_valid_data_dir: 'data/toc_processed/scale_2016-2020.npy'
+  test_data_dir:  'data/toc_processed/scale_2021.npy'
+  tv_split: 0.8
+  batch_size: 32
+  num_workers: 4
+
+model:
+  in_dim: 8
+  out_dim: 1
+  hdim: 32
+  lr: 0.0003
+
+train: 
+  epoch: 100
